@@ -150,7 +150,7 @@
     
     <section id="web-automatic-dream-timbl" class="slide" inlist="" rel="schema:hasPart" resource="#web-automatic-automatic-timbl" style="background-image: url('img/timbl.jpg'); background-size: cover">
         <h2 class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" property="schema:name">I Have a Dream</h2>
-        <h3 class="indent" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; width: 600px">A Web where intelligent<br />agents would be able to achieve<br />our day-to-day tasks.<br /><em>2001</em></h3>
+        <h3 class="indent" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; width: 600px">A Web where intelligent<br />agents are able to achieve<br />our day-to-day tasks.<br /><em>2001</em></h3>
     </section>
     <!-- But him. He envisioned... -->
     
@@ -260,6 +260,85 @@
         <li><a href="#index-queryingevolving">Querying Evolving</a></li>
       </ul>
     </section>
+    
+    <section id="generation-realistic-need" class="slide" inlist="" rel="schema:hasPart" resource="#generation-realistic-need" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">Experimentation requires <em>realistic</em> data</h2>
+    </section>
+    <!-- Why generation? Because ... -->
+    
+    <section id="generation-realistic-need-evolving" class="slide" inlist="" rel="schema:hasPart" resource="#generation-realistic-need-evolving" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 150px">Experimentation on<br />evolving knowledge graph systems<br />requires <em>realistic</em> evolving data</h2>
+    </section>
+    <!-- We can apply this to evolving knowledge graphs -->
+    
+    <section id="generation-publictransport" class="slide" inlist="" rel="schema:hasPart" resource="#generation-publictransport" style="background-image: url('img/generation/train.jpg'); background-size: cover">
+        <h2 class="big" property="schema:name" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Generating Public Transport Data</h2>
+        <ul class="next" style="font-size: 1.5em; margin-top: 150px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">
+            <li>Time</li>
+            <li>Space</li>
+            <li>Complex relationships</li>
+        </ul>
+    </section>
+    <!-- For this research: focus on public transport. Because it has a lot of dimensions that are useful for experimentation. -->
+    <!-- But how to generate realistic? You need something to start from. -->
+    
+    <section id="generation-howto" class="slide" inlist="" rel="schema:hasPart" resource="#generation-howto">
+        <h2 property="schema:name" >Population Distributions as Input</h2>
+        <center>
+        <img src="img/generation/populationdistribution.png" alt="Population Distribution Belgium" width="800px" />
+        </center>
+        <div class="next" style="position: relative; top: -80px; left: 55px">
+            Positive correlation between population and stops
+        </div>
+    </section>
+    <!-- I chose for pop distr. Figure: heatmap of pop in Belgium in red/black, green points indicate stops for trains. Correlated. So a given pop distr is perfect for generating public transport networks. -->
+    
+    <section id="generation-method" class="slide" inlist="" rel="schema:hasPart" resource="#generation-method">
+        <h2 property="schema:name">Generation Algorithm</h2>
+        <ul>
+            <li>
+                <h3>Based on existing techniques</h3>
+                <span class="indent">Public transport network design</span>
+            </li>
+            <li>
+                <h3>Multiple generation phases</h3>
+                <span class="indent">Network, Trips</span>
+            </li>
+            <li>
+                <h3>Realistic</h3>
+                <span class="indent">Evaluated by measuring distance to real data</span>
+            </li>
+        </ul>
+    </section>
+    <!-- Introduced a gen algo, based on accepted techniques, multiple phases, evaluated to be realistic.  -->
+    
+    <section id="generation-podigg" class="slide" inlist="" rel="schema:hasPart" resource="#generation-podigg">
+        <h2 property="schema:name">Open-source Implementation</h2>
+        <center style="margin-top: 100px">
+            <img src="img/logo-podigg-main.png" alt="PoDiGG" width="400px" />
+            <h3>Population Distribution-based GTFS Generator</h3>
+            <a href="https://github.com/PoDiGG/podigg">https://github.com/PoDiGG/podigg</a>
+        </center>
+    </section>
+    <!-- I implemented all of this in PoDiGG, which stands for... Open-source, you can use it! -->
+    
+    <section id="generation-example-1" class="slide" inlist="" rel="schema:hasPart" resource="#generation-example-1">
+        <h2 property="schema:name">PoDiGG: Example</h2>
+        <img src="img/generation/stops_parameterized.png" alt="Stops" width="900px" />
+    </section>
+    <!--  -->
+    
+    <section id="generation-example-2" class="slide" inlist="" rel="schema:hasPart" resource="#generation-example-2">
+        <h2 property="schema:name">PoDiGG: Example</h2>
+        <img src="img/generation/edges_parameterized.png" alt="Edges" width="900px" />
+    </section>
+    <!--  -->
+    
+    <section id="generation-example-3" class="slide" inlist="" rel="schema:hasPart" resource="#generation-example-3">
+        <h2 property="schema:name">PoDiGG: Example</h2>
+        <img src="img/generation/routes_parameterized.png" alt="Routes" width="900px" />
+    </section>
+    <!--  -->
     
     <section id="index-storage" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
