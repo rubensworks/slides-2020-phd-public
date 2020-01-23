@@ -326,19 +326,21 @@
         <h2 property="schema:name">PoDiGG: Example</h2>
         <img src="img/generation/stops_parameterized.png" alt="Stops" width="900px" />
     </section>
-    <!--  -->
-    
     <section id="generation-example-2" class="slide" inlist="" rel="schema:hasPart" resource="#generation-example-2">
         <h2 property="schema:name">PoDiGG: Example</h2>
         <img src="img/generation/edges_parameterized.png" alt="Edges" width="900px" />
     </section>
-    <!--  -->
-    
     <section id="generation-example-3" class="slide" inlist="" rel="schema:hasPart" resource="#generation-example-3">
         <h2 property="schema:name">PoDiGG: Example</h2>
         <img src="img/generation/routes_parameterized.png" alt="Routes" width="900px" />
     </section>
     <!--  -->
+    
+    <section id="generation-conclusions" class="slide" inlist="" rel="schema:hasPart" resource="#generation-conclusions" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 150px">Experimentation on<br />evolving knowledge graph systems<br />requires <em>realistic</em> evolving data</h2>
+        <span class="next" style="font-size: 3em">✅</span>
+    </section>
+    <!-- Conclusions: we can generate realistic ev KGs based on pop distr. -->
     
     <section id="index-storage" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
@@ -348,6 +350,84 @@
         <li><a href="#index-queryingevolving">Querying Evolving</a></li>
       </ul>
     </section>
+    
+    <section id="storage-goal" class="slide" inlist="" rel="schema:hasPart" resource="#storage-goal" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">How to <em>store</em> evolving knowledge efficiently,<br />while still allowing efficient <em>queries</em>?</h2>
+    </section>
+    <!-- This part, How to... -->
+    
+    <section id="storage-versions" class="slide" inlist="" rel="schema:hasPart" resource="#storage-versions" style="background-image: url('img/storing/calendar.jpg'); background-size: cover">
+        <h2 class="big" property="schema:name" style="margin-top: 10px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; font-size: 1.95em">Storing multiple knowledge graph versions</h2>
+        <h3 class="next" style="font-size: 1.5em; margin-top: 380px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">
+            Problem: overlapping data between versions
+        </h3>
+    </section>
+    <!-- Just like with our calendars. You can split up your evolving knowledge in time intervals. -->
+    <!-- Problem with this is that a lot of data can remain the same across versions. Storing in separately involves in a lot of storage overhead. -->
+    
+    <section id="storage-deltas" class="slide" inlist="" rel="schema:hasPart" resource="#storage-deltas">
+        <h2 class="big" property="schema:name">Solution: only store differences</h2>
+        <img src="img/storing/regular-delta-chain.svg" alt="Regular Delta Chain" width="900px" />
+        <h3 class="next" style="font-size: 1.5em">
+            Problem: querying inefficient for long chains
+        </h3>
+    </section>
+    <!-- Solution: only store differences between versions. But that has another problem... -->
+    
+    <section id="storage-deltas-2" class="slide" inlist="" rel="schema:hasPart" resource="#storage-deltas-2" style="font-size: 0.9em">
+        <h2 class="big" property="schema:name">Solution 2: differences relative to snapshot</h2>
+        <img src="img/storing/alternative-delta-chain.svg" alt="Alternative Delta Chain" width="900px" />
+    </section>
+    <!-- Solution: store diffs relative to snapshot. -->
+    
+    <section id="storage-queries" class="slide" inlist="" rel="schema:hasPart" resource="#storage-queries">
+        <h2 class="big" property="schema:name">New Query Algorithms</h2>
+        <ul>
+            <li>
+                <h3>Querying within a single version</h3>
+                <span class="indent"><em>Which books were available in the library yesterday?</em></span>
+            </li>
+            <li>
+                <h3>Querying between versions</h3>
+                <span class="indent"><em>Which books were exchanged between last week and today?</em></span>
+            </li>
+            <li>
+                <h3>Querying across versions</h3>
+                <span class="indent"><em>At what time was this book present?</em></span>
+            </li>
+        </ul>
+    </section>
+    <!-- I introduce 3 ways of querying -->
+    
+    <section id="storage-ostrich" class="slide" inlist="" rel="schema:hasPart" resource="#storage-ostrich">
+        <h2 property="schema:name">Open-source Implementation</h2>
+        <center style="margin-top: 100px">
+            <img src="img/ostrich-square.png" alt="OSTRICH" width="125px" />
+            <h3>Offset-enabled Triple store for Changesets</h3>
+            <a href="https://github.com/rdfostrich/ostrich">https://github.com/rdfostrich/ostrich</a>
+        </center>
+    </section>
+    <!-- I implemented all of this in OSTRICH, which stands for... Also open-source. -->
+    
+    <section id="storage-exp-vm" class="slide" inlist="" rel="schema:hasPart" resource="#storage-exp-vm">
+        <h2 property="schema:name">Experiment: Querying in single versions</h2>
+        <img src="img/storing/results_bearb-hourly-vm-summary.svg" alt="VM" width="900px" />
+    </section>
+    <section id="storage-exp-dm" class="slide" inlist="" rel="schema:hasPart" resource="#storage-exp-dm">
+        <h2 property="schema:name">Experiment: Querying between versions</h2>
+        <img src="img/storing/results_bearb-hourly-dm-summary.svg" alt="DM" width="900px" />
+    </section>
+    <section id="storage-exp-vq" class="slide" inlist="" rel="schema:hasPart" resource="#storage-exp-vq">
+        <h2 property="schema:name">Experiment: Querying across versions</h2>
+        <img src="img/storing/results_bearb-hourly-vq-summary.svg" alt="VQ" width="900px" />
+    </section>
+    <!-- Present experiments. Just a bit slower than one system in one case. Faster than that other system for other queries. -->
+    
+    <section id="storage-conclusions" class="slide" inlist="" rel="schema:hasPart" resource="#storage-conclusions" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">How to <em>store</em> evolving knowledge efficiently,<br />while still allowing efficient <em>queries</em>?</h2>
+        <span class="next" style="font-size: 3em">✅</span>
+    </section>
+    <!-- Efficient storage. On average faster than other systems. Combination ideal for Web querying. -->
     
     <section id="index-querying" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
