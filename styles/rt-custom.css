@@ -154,6 +154,14 @@ footer a {
     color: #777676;
 }
 
+.slide.index a {
+    color: #777676;
+}
+
+.slide.index li.current a {
+    color: #111;
+}
+
 .slide h2.big {
     margin-top: 1em;
     font-size: 2.1em;
