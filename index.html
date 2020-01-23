@@ -438,6 +438,53 @@
       </ul>
     </section>
     
+    <section id="querying-start" class="slide" style="background-image: url('img/querying/diamond.jpg')" inlist="" rel="schema:hasPart" resource="#querying-start">
+        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">Web Querying research is multifaceted</h2>
+        <ul style="color: white; text-shadow: 2px 2px black; font-size: 1.3em">
+            <li>Query languages and extensions</li>
+            <li>Web interfaces</li>
+            <li>Query algorithms</li>
+            <li>...</li>
+        </ul>
+    </section>
+    <!-- A step back. Web Querying in general. Many different ways... -->
+    
+    <section id="querying-need" class="slide" inlist="" rel="schema:hasPart" resource="#querying-need" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
+    </section>
+    <!-- To handle these different combinations of facets, we need... -->
+    
+    <section id="querying-solution-components" class="slide" style="background-image: url('img/querying/legos.jpg'); background-size: cover" inlist="" rel="schema:hasPart" resource="#querying-solution-components">
+        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">A set of building blocks<br />for building query engines</h2>
+        <ul class="next" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; font-size: 1.3em">
+            <li>Each block is very simple</li>
+            <li>Blocks can connect to other blocks via strict interfaces</li>
+            <li>Combinations of blocks can achieve complex tasks</li>
+        </ul>
+    </section>
+    <!-- Solution: building blocks -->
+    
+    <section id="querying-comunica" class="slide" inlist="" rel="schema:hasPart" resource="#querying-comunica" style="background-color: #be1622">
+        <h2 property="schema:name" style="color: white">Open-source Implementation</h2>
+        <center style="margin-top: 100px">
+            <img src="img/comunica.svg" alt="Comunica" width="250px" />
+            <br />
+            <a href="https://github.com/comunica/comunica" style="color: white">https://github.com/comunica/comunica</a>
+        </center>
+    </section>
+    <!-- I implemented all of this in Comunica. Also open-source. -->
+    
+    <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example" style="background-color: #f6f6f6">
+        <iframe src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&transientDatasources=https%3A%2F%2Fruben.verborgh.org%2Fprofile%2F;https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20%3FinterestName%0AWHERE%20%7B%0A%20%20ruben%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20rubent%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20%3Finterest%20rdfs%3Alabel%20%3FinterestName.%0A%20%20FILTER%20LANGMATCHES(LANG(%3FinterestName)%2C%20%20%22EN%22)%0A%7D" style="height: 600px"></iframe>
+    </section>
+    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. -->
+    
+    <section id="querying-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#querying-conclusion" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
+        <span class="next" style="font-size: 3em">✅</span>
+    </section>
+    <!-- To handle these different combinations of facets, we need... -->
+    
     <section id="index-queryingevolving" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
         <li><a href="#index-generation">Generation</a></li>
