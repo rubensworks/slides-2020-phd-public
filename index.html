@@ -483,7 +483,7 @@
         <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
         <span class="next" style="font-size: 3em">✅</span>
     </section>
-    <!-- To handle these different combinations of facets, we need... -->
+    <!-- Comunica meets these needs. -->
     
     <section id="index-queryingevolving" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
@@ -494,6 +494,83 @@
       </ul>
     </section>
     
+    <section id="queryingevolving-need" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-need" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">How to <em>query</em><br />evolving knowledge graphs<br /><em>over the Web</em>?</h2>
+    </section>
+    <!-- How to ... If you consider that these KGs have to be exposed on the Web, and have to be queryable efficiently across the Web, by many clients. -->
+    
+    <section id="queryingevolving-manyclients" class="slide" style="background-image: url('img/queryingevolving/audience.jpg'); background-size: cover" inlist="" rel="schema:hasPart" resource="#queryingevolving-manyclients">
+        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">The Web is like a large audience<br />continuously asking questions</h2>
+    </section>
+    <!-- The problem is a bit comparable to a huge audience where anyone can ask questions. Fine as long as questions are simple, and presenter can answer quickly. But problematic when questions are complex and take longer to answer. -->
+    
+    <section id="queryingevolving-clientside" class="slide" style="background-image: url('img/queryingevolving/library.jpg'); background-size: cover" inlist="" rel="schema:hasPart" resource="#queryingevolving-clientside">
+        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Audience solves questions themselves</h2>
+    </section>
+    <!-- A bit like a library. They won't give you all information directly, they direct you to books. Scales better if you just accept simple questions, and require people to come up with answers themselves. -->
+    
+    <section id="queryingevolving-problemevolving" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemevolving" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">Our situation is more complex:<br />evolving data!</h2>
+    </section>
+    <!-- Actually, our situation is more complex... So it's like the books in the library continuously change, so people have to continuously ask where books are. -->
+    
+    <section id="queryingevolving-scope" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-scope">
+        <h2 property="schema:name">Data that changes at predictable rates</h2>
+        <ul>
+            <li>
+                <h3>Playlist of radio station</h3>
+                <span class="indent">17:20 - 17:27: Max Richter - On The Nature Of Daylight</span><br />
+                <span class="indent">17:27 - 17:31: Hans Zimmer - Time</span>
+            </li>
+            <li>
+                <h3>Newspaper</h3>
+                <span class="indent">Daily, weekly, ...</span>
+            </li>
+            <li>
+                <h3>Periodic thermometer</h3>
+                <span class="indent">17:00: 18°C</span><br />
+                <span class="indent">17:01: 17°C</span>
+            </li>
+        </ul>
+    </section>
+    <!-- I focused on data that evolves at a predictable rate. -->
+    
+    <section id="queryingevolving-annotation" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-annotation">
+        <h2 property="schema:name">Annotate data with time intervals</h2>
+        <ul>
+            <li>
+                <h3>Publisher:</h3>
+                <span class="indent">17:20 - 17:27: Max Richter - On The Nature Of Daylight</span><br />
+                <span class="indent">17:27 - 17:31: Hans Zimmer - Time</span>
+            </li>
+            <li class="next">
+                <h3>Query at 17:25:</h3>
+                <span class="indent">17:20 - <strong>17:27</strong>: Max Richter - On The Nature Of Daylight</span>
+            </li>
+            <li class="next">
+                <h3>Query at 17:27:</h3>
+                <span class="indent">17:27 - <strong>17:31</strong>: Hans Zimmer - Time</span>
+            </li>
+        </ul>
+    </section>
+    <!-- To reduce effort for publisher, my approach annotates evolving data with time intervals. If someone queries at a given time (for example...), they don't have to re-execute until... -->
+    
+    <section id="queryingevolving-tpfqs" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-tpfqs">
+        <h2 property="schema:name">Open-source Implementation</h2>
+        <center style="margin-top: 100px">
+            <img src="img/tpfqs.png" alt="TPF-QS" width="250px" />
+            <h3>TPF-QS: <em>Triple Pattern Fragments</em> Query Streamer</h3>
+            <a href="https://github.com/LinkedDataFragments/QueryStreamer.js">https://github.com/LinkedDataFragments/QueryStreamer.js</a>
+        </center>
+    </section>
+    <!-- I implemented all of this in TPF-QS, which stands for... Also open-source. -->
+    
+    <section id="queryingevolving-exp" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-exp">
+        <h2 property="schema:name">Experiment: Publisher effort lowered</h2>
+        <center><img src="img/queryingevolving/scalability.png" alt="Scalability" width="600px" /></center>
+    </section>
+    <!-- With this impl, I measured the amount of effort the publisher had to do when multiple clients queried it (asked questions). Much lower than alternatives were queries were fully handled by the publisher. (just like large audience) -->
+    
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
         <li><a href="#index-generation">Generation</a></li>
@@ -502,6 +579,39 @@
         <li><a href="#index-queryingevolving">Querying Evolving</a></li>
       </ul>
     </section>
+    
+    <section id="challenges-recap" class="slide" inlist="" rel="schema:hasPart" resource="#challenges-recap">
+        <h2 property="schema:name">Focus on four sub-challenges</h2>
+        <ol>
+            <li>
+                <img class="next" src="img/logo-podigg-main.png" width="200px" style="float: right" />
+                <h3 style="height: 80px"><u>Generating</u> evolving knowledge graphs</h3>
+            </li>
+            <li>
+                <img class="next" src="img/ostrich-square.png" width="90px" style="float: right; margin-top: -40px" />
+                <h3 style="height: 80px"><u>Storing</u> evolving knowledge graphs</h3>
+            </li>
+            <li>
+                <img class="next" src="img/comunica.svg" width="90px" style="float: right" />
+                <h3 style="height: 80px"><u>Querying</u> knowledge graphs on the <u>Web</u></h3>
+            </li>
+            <li>
+                <img class="next" src="img/tpfqs.png" width="120px" style="float: right" />
+                <h3 style="height: 80px"><u>Querying</u> evolving knowledge graphs on the <u>Web</u></h3>
+            </li>
+        </ol>
+    </section>
+    <!-- To recap: ... -->
+    
+    <section id="conclude" class="slide" inlist="" rel="schema:hasPart" resource="#conclude" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">Storing and querying evolving knowledge graphs on the Web</h2>
+    </section>
+    <!-- All of this gives us (one possible) answer on how to ... -->
+    
+    <section id="link" class="slide" inlist="" rel="schema:hasPart" resource="#link" style="text-align: center">
+        <h2 class="big" property="schema:name" style="margin-top: 180px"><a href="https://phd.rubensworks.net/">https://phd.rubensworks.net/</a></h2>
+    </section>
+    <!-- If you want to know more, ask me, or visit... -->
 
     <footer>
       <p class="license">
