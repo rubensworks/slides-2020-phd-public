@@ -177,13 +177,13 @@
     
     <section id="agents-use-knowledgegraphs" class="slide" inlist="" rel="schema:hasPart" resource="#agents-use-knowledgegraphs">
         <h2 class="big" property="schema:name">How do these agents work?</h2>
-        <h3 class="next">&rarr; Data retrieval from structured information</h3>
+        <h3 class="next">&rarr; Execute Queries over Knowledge Graphs</h3>
         <p class="next indent">
-            Data retrieval = Queries
+            Query = Structured Question
             <br />
-            Structured information = Knowledge Graph(s)
+            Knowledge Graph = Structured information
         </p>
-        <h3 class="indent next">&rarr; Execute Queries on Knowledge Graphs</h3>
+        <h3 class="next indent">&rarr; Structured questions over structured information</h3>
     </section>
     <!-- They retrieve info from structured information that is understandable machine-readable = query KGs -->
     
@@ -207,7 +207,7 @@
             <img src="img/graph.png" alt="Graph" width="700px" style="opacity: 0.75" />
         </div>
     </section>
-    <!-- In summary: knowledge graphs collection of structured information. I won't go into detail on how this is structured. The same info as for humans, but so that machines can understand it. -->
+    <!-- An evolving knowledge graph is just a knowledge graph with information that evolves over time. -->
     
     <section id="decompose-final" class="slide" inlist="" rel="schema:hasPart" resource="#decompose-final">
         <ul style="margin-top: 100px">
@@ -383,15 +383,15 @@
     <section id="storage-queries" class="slide" inlist="" rel="schema:hasPart" resource="#storage-queries">
         <h2 class="big" property="schema:name">New Query Algorithms</h2>
         <ul>
-            <li>
+            <li class="next">
                 <h3>Querying within a single version</h3>
                 <span class="indent"><em>Which books were available in the library yesterday?</em></span>
             </li>
-            <li>
+            <li class="next">
                 <h3>Querying between versions</h3>
                 <span class="indent"><em>Which books were exchanged between last week and today?</em></span>
             </li>
-            <li>
+            <li class="next">
                 <h3>Querying across versions</h3>
                 <span class="indent"><em>At what time was this book present?</em></span>
             </li>
@@ -439,7 +439,7 @@
     </section>
     
     <section id="querying-start" class="slide" style="background-image: url('img/querying/diamond.jpg')" inlist="" rel="schema:hasPart" resource="#querying-start">
-        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">Web Querying research is multifaceted</h2>
+        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">Web Querying is multifaceted</h2>
         <ul style="color: white; text-shadow: 2px 2px black; font-size: 1.3em">
             <li>Query languages and extensions</li>
             <li>Web interfaces</li>
@@ -569,7 +569,13 @@
         <h2 property="schema:name">Experiment: Publisher effort lowered</h2>
         <center><img src="img/queryingevolving/scalability.png" alt="Scalability" width="600px" /></center>
     </section>
-    <!-- With this impl, I measured the amount of effort the publisher had to do when multiple clients queried it (asked questions). Much lower than alternatives were queries were fully handled by the publisher. (just like large audience) -->
+    <!-- With this impl, I measured the amount of effort the publisher had to do when multiple clients queried it (asked questions). Much lower than alternatives where queries were fully handled by the publisher. (just like large audience) -->
+    
+    <section id="queryingevolving-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-conclusion" style="text-align: center; font-size: 0.9em">
+        <h2 class="big" property="schema:name" style="margin-top: 180px">How to <em>query</em><br />evolving knowledge graphs<br /><em>over the Web</em>?</h2>
+        <span class="next" style="font-size: 3em">✅</span>
+    </section>
+    <!-- Comunica meets these needs. -->
     
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
