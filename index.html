@@ -496,7 +496,7 @@
     <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example" style="background-color: #f6f6f6">
         <iframe src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&transientDatasources=https%3A%2F%2Fruben.verborgh.org%2Fprofile%2F;https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20%3FinterestName%0AWHERE%20%7B%0A%20%20ruben%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20rubent%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20%3Finterest%20rdfs%3Alabel%20%3FinterestName.%0A%20%20FILTER%20LANGMATCHES(LANG(%3FinterestName)%2C%20%20%22EN%22)%0A%7D" style="height: 600px"></iframe>
     </section>
-    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. -->
+    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. 3 different types of sources. Comunica can detect then, and dynamically use appropriate query algorithms to query over them. -->
     
     <section id="querying-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#querying-conclusion" style="text-align: center; font-size: 0.9em">
         <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
