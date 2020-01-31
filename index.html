@@ -302,15 +302,10 @@
             </li>
             <li>
                 <h3>Multiple generation phases</h3>
-                <span class="indent">Network, Trips</span>
-            </li>
-            <li>
-                <h3>Realistic</h3>
-                <span class="indent">Evaluated by measuring distance to real data</span>
+                <span class="indent">Stops, Edges, Routes, Trips</span>
             </li>
         </ul>
     </section>
-    <!-- Introduced a gen algo, based on accepted techniques, multiple phases, evaluated to be realistic.  -->
     
     <section id="generation-podigg" class="slide" inlist="" rel="schema:hasPart" resource="#generation-podigg">
         <h2 property="schema:name">Open-source Implementation</h2>
@@ -335,6 +330,30 @@
         <img src="img/generation/routes_parameterized.png" alt="Routes" width="900px" />
     </section>
     <!--  -->
+    
+    <section id="generation-eval" class="slide" inlist="" rel="schema:hasPart" resource="#generation-eval">
+        <h2 property="schema:name">Realism Evaluation</h2>
+        <h3>Measured using distance functions</h3>
+        <br />
+        <div>
+            <div style="float: left">
+                <img src="img/generation/routes_parameterized.png" alt="Generated" width="300px" />
+                <br />
+                <center><strong>Generated</strong></center>
+            </div>
+            <div style="float: left">
+                <img src="img/generation/routes_gs.png" alt="Real" width="300px" />
+                <br />
+                <center><strong>Real</strong></center>
+            </div>
+            <div style="float: left">
+                <img src="img/generation/routes_random.png" alt="Random" width="300px" />
+                <br />
+                <center><strong>Random</strong></center>
+            </div>
+        </div>
+    </section>
+    <!-- To check if this is realistic, compare to real-world dataset and random data, distance from generated to real-world is smaller than random to real-world. -->
     
     <section id="generation-conclusions" class="slide" inlist="" rel="schema:hasPart" resource="#generation-conclusions" style="text-align: center">
         <h2 class="big" property="schema:name" style="margin-top: 150px">Generate <em>realistic</em><br />evolving knowledge graphs</h2>
