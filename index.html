@@ -196,7 +196,7 @@
             <img src="img/graph.png" alt="Graph" width="700px" style="opacity: 0.75" />
         </div>
     </section>
-    <!-- In summary: knowledge graphs collection of structured information. I won't go into detail on how this is structured. The same info as for humans, but so that machines can understand it. -->
+    <!-- KGs are very important for intelligent agents. In summary: knowledge graphs collection of structured information. I won't go into detail on how this is structured. The same info as for humans, but so that machines can understand it. -->
     
     <section id="evolvingknowledgegraphs" class="slide" inlist="" rel="schema:hasPart" resource="#evolvingknowledgegraphs">
         <h2 class="big" property="schema:name">An Evolving Knowledge Graph is<br />a collection of <em>structured information</em> that <em>evolves over time</em></h2>
@@ -264,7 +264,7 @@
     <section id="generation-realistic-need" class="slide" inlist="" rel="schema:hasPart" resource="#generation-realistic-need" style="text-align: center">
         <h2 class="big" property="schema:name" style="margin-top: 180px">Experimentation requires <em>realistic</em> data</h2>
     </section>
-    <!-- Why generation? Because ... -->
+    <!-- In researh start with hypos, and to validate them, we do experiments. Expirements need data. -->
     
     <section id="generation-realistic-need-evolving" class="slide" inlist="" rel="schema:hasPart" resource="#generation-realistic-need-evolving" style="text-align: center">
         <h2 class="big" property="schema:name" style="margin-top: 150px">Experimentation on<br />evolving knowledge graph systems<br />requires <em>realistic</em> evolving data</h2>
@@ -302,15 +302,10 @@
             </li>
             <li>
                 <h3>Multiple generation phases</h3>
-                <span class="indent">Network, Trips</span>
-            </li>
-            <li>
-                <h3>Realistic</h3>
-                <span class="indent">Evaluated by measuring distance to real data</span>
+                <span class="indent">Stops, Edges, Routes, Trips</span>
             </li>
         </ul>
     </section>
-    <!-- Introduced a gen algo, based on accepted techniques, multiple phases, evaluated to be realistic.  -->
     
     <section id="generation-podigg" class="slide" inlist="" rel="schema:hasPart" resource="#generation-podigg">
         <h2 property="schema:name">Open-source Implementation</h2>
@@ -336,8 +331,32 @@
     </section>
     <!--  -->
     
+    <section id="generation-eval" class="slide" inlist="" rel="schema:hasPart" resource="#generation-eval">
+        <h2 property="schema:name">Realism Evaluation</h2>
+        <h3>Measured using distance functions</h3>
+        <br />
+        <div>
+            <div style="float: left">
+                <img src="img/generation/routes_parameterized.png" alt="Generated" width="300px" />
+                <br />
+                <center><strong>Generated</strong></center>
+            </div>
+            <div style="float: left">
+                <img src="img/generation/routes_gs.png" alt="Real" width="300px" />
+                <br />
+                <center><strong>Real</strong></center>
+            </div>
+            <div style="float: left">
+                <img src="img/generation/routes_random.png" alt="Random" width="300px" />
+                <br />
+                <center><strong>Random</strong></center>
+            </div>
+        </div>
+    </section>
+    <!-- To check if this is realistic, compare to real-world dataset and random data, distance from generated to real-world is smaller than random to real-world. -->
+    
     <section id="generation-conclusions" class="slide" inlist="" rel="schema:hasPart" resource="#generation-conclusions" style="text-align: center">
-        <h2 class="big" property="schema:name" style="margin-top: 150px">Experimentation on<br />evolving knowledge graph systems<br />requires <em>realistic</em> evolving data</h2>
+        <h2 class="big" property="schema:name" style="margin-top: 150px">Generate <em>realistic</em><br />evolving knowledge graphs</h2>
         <span class="next" style="font-size: 3em">✅</span>
     </section>
     <!-- Conclusions: we can generate realistic ev KGs based on pop distr. -->
@@ -393,7 +412,7 @@
             </li>
             <li class="next">
                 <h3>Querying across versions</h3>
-                <span class="indent"><em>At what time was this book present?</em></span>
+                <span class="indent"><em>At what times was this book present?</em></span>
             </li>
         </ul>
     </section>
@@ -477,7 +496,7 @@
     <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example" style="background-color: #f6f6f6">
         <iframe src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&transientDatasources=https%3A%2F%2Fruben.verborgh.org%2Fprofile%2F;https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20%3FinterestName%0AWHERE%20%7B%0A%20%20ruben%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20rubent%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20%3Finterest%20rdfs%3Alabel%20%3FinterestName.%0A%20%20FILTER%20LANGMATCHES(LANG(%3FinterestName)%2C%20%20%22EN%22)%0A%7D" style="height: 600px"></iframe>
     </section>
-    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. -->
+    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. 3 different types of sources. Comunica can detect then, and dynamically use appropriate query algorithms to query over them. -->
     
     <section id="querying-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#querying-conclusion" style="text-align: center; font-size: 0.9em">
         <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
@@ -509,10 +528,15 @@
     </section>
     <!-- A bit like a library. They won't give you all information directly, they direct you to books. Scales better if you just accept simple questions, and require people to come up with answers themselves. -->
     
-    <section id="queryingevolving-problemevolving" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemevolving" style="text-align: center">
-        <h2 class="big" property="schema:name" style="margin-top: 180px">Our situation is more complex:<br />evolving data!</h2>
+    <section id="queryingevolving-problemdiagram" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemdiagram">
+        <h2 property="schema:name">Redistributing publisher and client effort</h2>
+        <br />
+        <img src="img/queryingevolving/ldf_load.png" alt="Load server client" width="900px" />
+        <a href="http://ceur-ws.org/Vol-1184/ldow2014_paper_04.pdf" style="font-size: 14px; color: gray; font-style: italic; float: right">Verborgh 2014</a>
+        <h3 class="next" property="schema:name">Our situation is more complex: evolving data!</h3>
     </section>
-    <!-- Actually, our situation is more complex... So it's like the books in the library continuously change, so people have to continuously ask where books are. -->
+    <!-- What does this actually look like in practise. Left: usual situation where Web servers do all the work and clients nothing. Right: Web server does minimal work, and clients help with execution. -->
+    <!-- Actually, we are working with evolving data, so our situation is more complex. Load on servers is even greater. -->
     
     <section id="queryingevolving-scope" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-scope">
         <h2 property="schema:name">Data that changes at predictable rates</h2>
@@ -617,7 +641,7 @@
     <section id="link" class="slide" inlist="" rel="schema:hasPart" resource="#link" style="text-align: center">
         <h2 class="big" property="schema:name" style="margin-top: 180px"><a href="https://phd.rubensworks.net/">https://phd.rubensworks.net/</a></h2>
     </section>
-    <!-- If you want to know more, ask me, or visit... -->
+    <!-- Thanks you for your attention. If you want to know more, read the book, or visit..., ask me -->
 
     <footer>
       <p class="license">
