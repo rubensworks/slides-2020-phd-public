@@ -528,10 +528,15 @@
     </section>
     <!-- A bit like a library. They won't give you all information directly, they direct you to books. Scales better if you just accept simple questions, and require people to come up with answers themselves. -->
     
-    <section id="queryingevolving-problemevolving" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemevolving" style="text-align: center">
-        <h2 class="big" property="schema:name" style="margin-top: 180px">Our situation is more complex:<br />evolving data!</h2>
+    <section id="queryingevolving-problemdiagram" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemdiagram">
+        <h2 property="schema:name">Redistributing publisher and client effort</h2>
+        <br />
+        <img src="img/queryingevolving/ldf_load.png" alt="Load server client" width="900px" />
+        <a href="http://ceur-ws.org/Vol-1184/ldow2014_paper_04.pdf" style="font-size: 14px; color: gray; font-style: italic; float: right">Verborgh 2014</a>
+        <h3 class="next" property="schema:name">Our situation is more complex: evolving data!</h3>
     </section>
-    <!-- Actually, our situation is more complex... So it's like the books in the library continuously change, so people have to continuously ask where books are. -->
+    <!-- What does this actually look like in practise. Left: usual situation where Web servers do all the work and clients nothing. Right: Web server does minimal work, and clients help with execution. -->
+    <!-- Actually, we are working with evolving data, so our situation is more complex. Load on servers is even greater. -->
     
     <section id="queryingevolving-scope" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-scope">
         <h2 property="schema:name">Data that changes at predictable rates</h2>
