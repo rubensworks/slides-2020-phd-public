@@ -493,10 +493,23 @@
     </section>
     <!-- I implemented all of this in Comunica. Also open-source. -->
     
+    <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example">
+        <h2 property="schema:name">Comunica is flexible at different levels</h2>
+        <h3><em>Example: find common interests between Ruben Verborgh and me</em></h3>
+        <h3>Handling different Web interfaces</h3>
+        <ul>
+            <li><a href="https://ruben.verborgh.org/profile/#me">Ruben Verborgh's profile</a>: RDF Turtle file</li>
+            <li><a href="https://www.rubensworks.net/#me">Ruben Taelman's profile</a>: HTML file with RDFa</li>
+            <li><a href="https://fragments.dbpedia.org/2016-04/en">DBpedia</a>: Triple Pattern Fragments interface</li>
+        </ul>
+        <p class="indent">&rarr; Comunica detects type of interface to plan query execution</p>
+    </section>
+    <!-- Let's have a look at an example of Comunica's flexibility. Example... For this, we have to handle 3 different types of sources: ... In this case Comunica will detect the type of each Web interface, and plan query exec accordingly.  -->
+
     <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example" style="background-color: #f6f6f6">
         <iframe src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&transientDatasources=https%3A%2F%2Fruben.verborgh.org%2Fprofile%2F;https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20%3FinterestName%0AWHERE%20%7B%0A%20%20ruben%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20rubent%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20%3Finterest%20rdfs%3Alabel%20%3FinterestName.%0A%20%20FILTER%20LANGMATCHES(LANG(%3FinterestName)%2C%20%20%22EN%22)%0A%7D" style="height: 600px"></iframe>
     </section>
-    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. 3 different types of sources. Comunica can detect then, and dynamically use appropriate query algorithms to query over them. -->
+    <!-- Live example: sources, structured query. Execute query, see results coming in. If we look at logs, we can see what happens: source types are detected. -->
     
     <section id="querying-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#querying-conclusion" style="text-align: center; font-size: 0.9em">
         <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
@@ -520,23 +533,37 @@
     
     <section id="queryingevolving-manyclients" class="slide" style="background-image: url('img/queryingevolving/audience.jpg'); background-size: cover" inlist="" rel="schema:hasPart" resource="#queryingevolving-manyclients">
         <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">The Web is like a large audience<br />continuously asking questions</h2>
+        <h3 class="next indent" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">The theatre model</h3>
+        <center class="next">
+            <img src="img/queryingevolving/ldf_load_theatre.png" alt="Load server client theatre" width="500px" />
+            <a href="http://ceur-ws.org/Vol-1184/ldow2014_paper_04.pdf" style="font-size: 14px; color: white; font-style: italic">Verborgh 2014</a>
+        </center>
     </section>
     <!-- The problem is a bit comparable to a huge audience where anyone can ask questions. Fine as long as questions are simple, and presenter can answer quickly. But problematic when questions are complex and take longer to answer. -->
     
     <section id="queryingevolving-clientside" class="slide" style="background-image: url('img/queryingevolving/library.jpg'); background-size: cover" inlist="" rel="schema:hasPart" resource="#queryingevolving-clientside">
         <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Audience solves questions themselves</h2>
+        <h3 class="next indent" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">The library model</h3>
+        <center class="next">
+            <img src="img/queryingevolving/ldf_load_library.png" alt="Load server client library" width="500px" />
+            <a href="http://ceur-ws.org/Vol-1184/ldow2014_paper_04.pdf" style="font-size: 14px; color: white; font-style: italic">Verborgh 2014</a>
+        </center>
     </section>
     <!-- A bit like a library. They won't give you all information directly, they direct you to books. Scales better if you just accept simple questions, and require people to come up with answers themselves. -->
+    <!-- My approach will build upon this library model. -->
     
-    <section id="queryingevolving-problemdiagram" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-problemdiagram">
-        <h2 property="schema:name">Redistributing publisher and client effort</h2>
-        <br />
-        <img src="img/queryingevolving/ldf_load.png" alt="Load server client" width="900px" />
-        <a href="http://ceur-ws.org/Vol-1184/ldow2014_paper_04.pdf" style="font-size: 14px; color: gray; font-style: italic; float: right">Verborgh 2014</a>
-        <h3 class="next" property="schema:name">Our situation is more complex: evolving data!</h3>
+    <section id="queryingevolving-evolving" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-evolving">
+        <h2 property="schema:name" class="big">Focus on evolving data</h2>
+        <ul>
+            <li class="next"><h3>Static data: clients ask a single question</h3></li>
+            <li class="next">
+                <h3>Evolving data: clients continuously ask questions</h3>
+                <span class="indent">&rarr; Increase in publisher effort</span><br />
+                <span class="indent">&rarr; How to limit this increase?</span>
+            </li>
+        </ul>
     </section>
-    <!-- What does this actually look like in practise. Left: usual situation where Web servers do all the work and clients nothing. Right: Web server does minimal work, and clients help with execution. -->
-    <!-- Actually, we are working with evolving data, so our situation is more complex. Load on servers is even greater. -->
+    <!-- I focus here on evolving data. With static data, data does not change, so clients just ask a single question. With evolving data, clients typically ask repeated questions, which increased publisher effort. So how to limit this increase in effort? -->
     
     <section id="queryingevolving-scope" class="slide" inlist="" rel="schema:hasPart" resource="#queryingevolving-scope">
         <h2 property="schema:name">Data that changes at predictable rates</h2>
@@ -637,6 +664,35 @@
         <h2 class="big" property="schema:name" style="margin-top: 180px">Storing and querying evolving knowledge graphs on the Web</h2>
     </section>
     <!-- All of this gives us (one possible) answer on how to ... -->
+    
+    <section id="so-what" class="slide" inlist="" rel="schema:hasPart" resource="#so-what">
+        <h2 property="schema:name">How will this affect you?</h2>
+        <ul>
+            <li class="next">
+                <h3>Behind the scenes</h3>
+                <span class="indent">No direct contact</span>
+            </li>
+            <li class="next">
+                <h3>Intelligent agents</h3>
+                <span class="indent">More complex questions, continuous questions</span>
+                <br />
+                <span class="indent"><em>Notify me 30 minutes before each meeting if it will rain.</em></span>
+            </li>
+            <li class="next">
+                <h3>Decentralization</h3>
+                <span class="indent">Control, transparency, privacy, ...</span>
+            </li>
+            <li class="next">
+                <h3>&rarr; More research is needed</h3>
+            </li>
+        </ul>
+    </section>
+    <!-- You may be wondering what all of this means for you personally. -->
+    <!-- All of the things I explained are things that happen behind the scenes, so you will most probably never come in direct contact with these things. -->
+    <!-- The way you will come in contact to them is for example through intell agents. -->
+    <!-- Through this work, intelligent agents will on the one hand be able to handle more complex questions, but also continuous questions over evolving data. For example... -->
+    <!-- Another thing my research will affect is how intell agents are built, while current intell agents are out of your control as they run on servers from large companies, intell agents from the future will become more decentralized, which will lead to more personal control, more transparency in query exec, and better privacy of your data. -->
+    <!-- Obviously, my work is just a partial step towards those things, much more research is needed to get there. -->
     
     <section id="link" class="slide" inlist="" rel="schema:hasPart" resource="#link" style="text-align: center">
         <h2 class="big" property="schema:name" style="margin-top: 180px"><a href="https://phd.rubensworks.net/">https://phd.rubensworks.net/</a></h2>
