@@ -493,10 +493,23 @@
     </section>
     <!-- I implemented all of this in Comunica. Also open-source. -->
     
+    <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example">
+        <h2 property="schema:name">Comunica is flexible at different levels</h2>
+        <h3><em>Example: find common interests between Ruben Verborgh and me</em></h3>
+        <h3>Handling different Web interfaces</h3>
+        <ul>
+            <li><a href="https://ruben.verborgh.org/profile/#me">Ruben Verborgh's profile</a>: RDF Turtle file</li>
+            <li><a href="https://www.rubensworks.net/#me">Ruben Taelman's profile</a>: HTML file with RDFa</li>
+            <li><a href="https://fragments.dbpedia.org/2016-04/en">DBpedia</a>: Triple Pattern Fragments interface</li>
+        </ul>
+        <p class="indent">&rarr; Comunica detects type of interface to plan query execution</p>
+    </section>
+    <!-- Let's have a look at an example of Comunica's flexibility. Example... For this, we have to handle 3 different types of sources: ... In this case Comunica will detect the type of each Web interface, and plan query exec accordingly.  -->
+
     <section id="querying-example" class="slide" inlist="" rel="schema:hasPart" resource="#querying-example" style="background-color: #f6f6f6">
         <iframe src="https://query.linkeddatafragments.org/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&transientDatasources=https%3A%2F%2Fruben.verborgh.org%2Fprofile%2F;https%3A%2F%2Fwww.rubensworks.net%2F&query=SELECT%20%3FinterestName%0AWHERE%20%7B%0A%20%20ruben%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20rubent%3Ame%20foaf%3Atopic_interest%20%3Finterest.%0A%20%20%3Finterest%20rdfs%3Alabel%20%3FinterestName.%0A%20%20FILTER%20LANGMATCHES(LANG(%3FinterestName)%2C%20%20%22EN%22)%0A%7D" style="height: 600px"></iframe>
     </section>
-    <!-- Example: we want to find common interests between my supervisor Ruben Verborgh and myself. For this, sources (websites containing knowledge), query. 3 different types of sources. Comunica can detect then, and dynamically use appropriate query algorithms to query over them. -->
+    <!-- Live example: sources, structured query. Execute query, see results coming in. If we look at logs, we can see what happens: source types are detected. -->
     
     <section id="querying-conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#querying-conclusion" style="text-align: center; font-size: 0.9em">
         <h2 class="big" property="schema:name" style="margin-top: 180px">Need for a <em>flexible querying</em> platform,<br />to implement and compare <em>different facets</em></h2>
